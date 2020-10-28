@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from './Header.js';
 import Main from './Main.js';
 import Footer from "./Footer";
@@ -18,7 +19,7 @@ function App() {
 
         <div className="popup" id="popup__profile">
           <div className="popup__container">
-            <button className="popup__button-close" id="profile__button-close" type="button"></button>
+            <button className="popup__button-close" id="profile__button-close" type="button"/>
             <h2 className="popup__title">Редактировать профиль</h2>
             <form className="popup__form" id="profile__form" noValidate>
               <input className="popup__field" id="profile__name" name="name" type="text" minLength="2" maxLength="40"
@@ -34,7 +35,7 @@ function App() {
 
         <div className="popup" id="popup__place">
           <div className="popup__container">
-            <button className="popup__button-close" id="place__button-close" type="button"></button>
+            <button className="popup__button-close" id="place__button-close" type="button"/>
             <h2 className="popup__title">Новое место</h2>
             <form className="popup__form" id="place__form" noValidate>
               <input className="popup__field" id="place__name" name="name" type="text" placeholder="Название"
@@ -52,13 +53,13 @@ function App() {
           <div className="popup__container_image">
             <img className="popup__image" src='#' alt='' />
               <h2 className="popup__title_image"></h2>
-              <button className="popup__button-close" id="image__button-close" type="button"></button>
+              <button className="popup__button-close" id="image__button-close" type="button"/>
           </div>
         </div>
 
         <div className="popup" id="popup__deletion">
           <div className="popup__container">
-            <button className="popup__button-close" id="deletion__button-close" type="button"></button>
+            <button className="popup__button-close" id="deletion__button-close" type="button"/>
             <h2 className="popup__title">Вы уверены?</h2>
             <button className="popup__button-confirm" id="deletion__button-confirm" type="button">Да</button>
           </div>
@@ -66,7 +67,7 @@ function App() {
 
         <div className="popup" id="popup__avatar">
           <div className="popup__container">
-            <button className="popup__button-close" id="avatar__button-close" type="button"></button>
+            <button className="popup__button-close" id="avatar__button-close" type="button"/>
             <h2 className="popup__title">Обновить аватар</h2>
             <form className="popup__form" id="avatar__form" noValidate>
               <input className="popup__field" id="avatar__link" name="avatar__link" type="url"
@@ -80,8 +81,8 @@ function App() {
         <template id="templateContainer">
           <li className="element">
             <button className="element__button-delete" type="button">
-              <div className="element__button-delete_top"></div>
-              <div className="element__button-delete_bottom"></div>
+              <div className="element__button-delete_top"/>
+              <div className="element__button-delete_bottom"/>
             </button>
             <img className="element__photo" />
               <div className="element__description">
