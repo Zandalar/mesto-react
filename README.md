@@ -1,4 +1,4 @@
-# Проект ["Mesto"](http://localhost:3000) на "React"
+# Проект ["Mesto"](https://zandalar.github.io/mesto-react) на "React"
 
 ### Что было сделано:
 
