@@ -22,7 +22,7 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
         setCards(cardsList);
         setIsLoading(false);
       })
-      .catch((err) => console.log(`Что-то пошло не так: ${err}`))
+      .catch((err) => console.log(`Что-то пошло не так :( ${err}`))
   }, [])
 
   return (

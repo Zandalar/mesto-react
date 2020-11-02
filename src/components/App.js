@@ -3,14 +3,13 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
-import PopupWithImage from './PopupWithImage';
+import ImagePopup from './ImagePopup';
 
 function App() {
 	const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
 	const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
 	const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
-	const [cardData, setCardData] = React.useState({});
-	const [selectedCard, setSelectedCard] = React.useState(false);
+	const [selectedCard, setSelectedCard] = React.useState(''); // не работает с "null", "{}", "[]", "undefined", только с "false" и '' корректно открывается
 
 	function handleEditProfileClick() {
 		setIsEditProfilePopupOpen(true);
@@ -24,17 +23,15 @@ function App() {
 		setIsEditAvatarPopupOpen(true);
 	}
 
-	function handleCardClick({ name, link }) {
-		setSelectedCard(true);
-		setCardData({name: name, link: link});
+	function handleCardClick(data) {
+		setSelectedCard(data);
 	}
 
 	function closeAllPopups() {
 		setIsEditProfilePopupOpen(false);
 		setIsAddPlacePopupOpen(false);
 		setIsEditAvatarPopupOpen(false);
-		setCardData({});
-		setSelectedCard(false);
+		setSelectedCard(''); // не работает с "null", "{}", "[]", "undefined", только с "false" и '' корректно открывается
 	}
 
 	return (
@@ -102,10 +99,11 @@ function App() {
 					}
 				/>
 
-				<PopupWithImage
-					isOpen={selectedCard}
-					onClose={closeAllPopups}
-					cardData={cardData}
+				<ImagePopup
+          name='image'
+					data={selectedCard}
+          onClose={closeAllPopups}
+          disabled
 				/>
 			</div>
 		</div>
