@@ -9,7 +9,8 @@ function App() {
 	const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
 	const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
 	const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
-	const [selectedCard, setSelectedCard] = React.useState(''); // не работает с "null", "{}", "[]", "undefined", только с "false" и '' корректно открывается
+	const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
+	const [selectedCard, setSelectedCard] = React.useState({});
 
 	function handleEditProfileClick() {
 		setIsEditProfilePopupOpen(true);
@@ -25,13 +26,15 @@ function App() {
 
 	function handleCardClick(data) {
 		setSelectedCard(data);
+		setIsImagePopupOpen(true)
 	}
 
 	function closeAllPopups() {
 		setIsEditProfilePopupOpen(false);
 		setIsAddPlacePopupOpen(false);
 		setIsEditAvatarPopupOpen(false);
-		setSelectedCard(''); // не работает с "null", "{}", "[]", "undefined", только с "false" и '' корректно открывается
+    setIsImagePopupOpen(false);
+		setSelectedCard({});
 	}
 
 	return (
@@ -103,7 +106,7 @@ function App() {
           name='image'
 					data={selectedCard}
           onClose={closeAllPopups}
-          disabled
+          isOpen={isImagePopupOpen}
 				/>
 			</div>
 		</div>
