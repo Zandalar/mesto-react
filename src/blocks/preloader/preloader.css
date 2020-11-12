@@ -1,12 +1,13 @@
 .preloader {
   position: fixed;
-  top: 30%;
+  top: 50%;
   left: 50%;
   width: 75px;
   height: 75px;
   border-bottom: 2px solid #f59133;
   border-radius: 50%;
   animation: preloader 2s linear infinite;
+  transform: translate(-50%, -50%);
 }
 
 .preloader:before {
@@ -19,6 +20,7 @@
   border-bottom: 2px solid #33e530;
   border-radius: 50%;
   animation: preloader 1s linear infinite;
+  transform: translate(-50%, -50%);
 }
 
 .preloader:after {
@@ -31,6 +33,7 @@
   border-bottom: 2px solid #f7fa37;
   border-radius: 50%;
   animation: preloader .5s linear infinite;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes preloader

@@ -49,17 +49,9 @@ class Api {
       .then(this._checkAnswer)
   }
 
-  addLike(id) {
+  changeLikeCardStatus(id, isLiked) {
     return fetch(`${this._baseUrl}/cards/likes/${id}`, {
-      method: "PUT",
-      headers: this._headers
-    })
-      .then(this._checkAnswer)
-  }
-
-  deleteLike(id) {
-    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
-      method: "DELETE",
+      method: `${isLiked ? "PUT" : "DELETE"}`,
       headers: this._headers
     })
       .then(this._checkAnswer)
@@ -77,9 +69,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        avatar: data.avatar__link,
-      })
+      body: JSON.stringify(data)
     })
       .then(this._checkAnswer)
   }
