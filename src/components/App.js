@@ -19,7 +19,7 @@ function App() {
   const [isLoading, setIsLoading] = React.useState(false);
 	const [selectedCard, setSelectedCard] = React.useState({});
 	const [currentUser, setCurrentUser] = React.useState({});
-	const [cards, setCards] = React.useState({});
+	const [cards, setCards] = React.useState([]);
 
 	function handleCardLike(card) {
     const isLiked = card.likes.some(item => item._id === currentUser._id);
@@ -80,36 +80,31 @@ function App() {
         const [userData, cardsList] = res;
         setCurrentUser(userData)
         setCards(cardsList);
-        setIsLoading(false);
       })
       .catch((err) => console.log(`Что-то пошло не так :( ${err}`))
+      .finally(() => setIsLoading(false))
   }, [])
 
 	function handleEditProfileClick() {
 		setIsEditProfilePopupOpen(true);
-    window.addEventListener('keydown', handleEscClick);
 	}
 
 	function handleAddPlaceClick() {
 		setIsAddPlacePopupOpen(true);
-    window.addEventListener('keydown', handleEscClick);
 	}
 
 	function handleEditAvatarClick() {
 		setIsEditAvatarPopupOpen(true);
-    window.addEventListener('keydown', handleEscClick);
 	}
 
 	function handleCardClick(data) {
 		setSelectedCard(data);
 		setIsImagePopupOpen(true);
-    window.addEventListener('keydown', handleEscClick);
 	}
 
   function handleDeletionCardClick(data) {
     setSelectedCard(data);
     setIsDeletionCardPopupOpen(true);
-    window.addEventListener('keydown', handleEscClick);
   }
 
   function handleEscClick(evt) {
@@ -125,12 +120,18 @@ function App() {
     setIsImagePopupOpen(false);
     setIsDeletionCardPopupOpen(false);
 		setSelectedCard({});
-		window.removeEventListener('keydown', handleEscClick);
 	}
 
   function isolatePopup(evt) {
     evt.stopPropagation();
   }
+
+  React.useEffect(() => {
+    window.addEventListener('keydown', handleEscClick);
+    return () => {
+      window.removeEventListener('keydown', handleEscClick);
+    }
+  })
 
 	return (
 	  <CurrentUserContext.Provider value={currentUser}>
