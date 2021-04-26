@@ -21,6 +21,8 @@ function App() {
 	const [currentUser, setCurrentUser] = React.useState({});
 	const [cards, setCards] = React.useState([]);
 
+	const [loggedIn, setLoggedIn] = React.useState(false);
+
 	function handleCardLike(card) {
     const isLiked = card.likes.some(item => item._id === currentUser._id);
     api.changeLikeCardStatus(card._id, !isLiked)

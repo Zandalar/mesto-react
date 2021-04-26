@@ -7,3 +7,16 @@
 * Использованы функциональные компоненты и хуки
 * Добавлен прелоадер
 * Оптимизирован и структурирован код
+
+### Стек:
+
+* HTML
+* CSS
+* JavaScript
+* React
+
+Дальнейшие доработки проекта можно посмотреть [тут](https://github.com/Zandalar/react-mesto-api-full)
+
+[Финальная версия](https://masich.students.nomoredomains.rocks/sign-in)
+
+
